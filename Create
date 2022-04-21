@@ -1,0 +1,10 @@
+Скачиваем исполняемые файлы и создаем системного пользователя
+cd $HOME
+sudo apt update && sudo apt upgrade -y
+sudo apt install wget -y
+wget -O subspace-node https://github.com/subspace/subspace/releases/download/snapshot-2022-mar-09/subspace-node-ubuntu-x86_64-snapshot-2022-mar-09
+wget -O subspace-farmer https://github.com/subspace/subspace/releases/download/snapshot-2022-mar-09/subspace-farmer-ubuntu-x86_64-snapshot-2022-mar-09
+sudo mv subspace* /usr/local/bin/
+sudo chmod +x /usr/local/bin/subspace*
+
+sudo adduser --system --home=/var/lib/subspace subspace
