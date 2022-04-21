@@ -21,3 +21,19 @@ RestartSec=10
 LimitNOFILE=10000
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/subspace-node.service
+
+
+printf "[Unit]
+Description=Subspace Farmer
+Requires=subspace-node.service
+After=network.target
+After=subspace-node.service
+[Service]
+Type=simple
+User=subspace
+ExecStart=$(which subspace-farmer) farm --reward-address $SUBSPACE_WALLET_ADDRESS
+Restart=always
+RestartSec=10
+LimitNOFILE=10000
+[Install]
+WantedBy=multi-user.target" > /etc/systemd/system/subspace-farmer.service
