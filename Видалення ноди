@@ -1,0 +1,7 @@
+sudo systemctl stop subspace-node subspace-farmer
+sudo systemctl disable subspace-node subspace-farmer
+sudo deluser subspace
+sudo rm -rf /var/lib/subspace
+sudo rm -rf /root/.local/share/subspace*
+sudo rm /usr/local/bin/subspace*
+sudo rm /etc/systemd/system/subspace*
